@@ -1,0 +1,13 @@
+# Website-Extrator Readme
+
+## Contributor
+* Author: Kurt Jarvis
+* Date: May 21, 2023
+* Script Name: website-extractor.py
+
+## Description
+The webpage extractor is a tool that I am automating to see what webpage links are embedded on a page to include all the src scripts that are in there for inspection. My goal is to link this in to other automation opportunities to allow some pentesting to happen automatically.
+
+## Installation
+
+## Additional Resources
