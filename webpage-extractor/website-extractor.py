@@ -66,7 +66,18 @@ class WebpageExtractor:
         if self.verbose:
             print(message)
 
-    
+# helper function to isolate problems
+def runoptions(options, we, valid_choices, text):
+    answers = []
+    if options.selection == "all":
+        for option in valid_choices:
+            if option == "all":
+                continue
+            answers += we.extractTags(text, option)
+    else:
+        answers += we.extractTags(text, options.selection)
+    return answers
+
 #python def for main
 def main():
     # these are the choices available and it is based on html tags
@@ -76,24 +87,27 @@ def main():
     answers = []
     text = ""
     if options.extractFrom is not None:
-        if options.extractFrom[0].startswith("http"):
-            req = requests.get(options.extractFrom[0])
-        else:   
-            req = requests.get("https://" + options.extractFrom[0])
-        if req.status_code != 200:
-            print("Error:", req.status_code)
-            return
-        text += req.text
+        for item in options.extractFrom:
+            we.printMessage("Processing " + item)
+            if item.startswith("http"):
+                req = requests.get(item)
+            else:   
+                req = requests.get("https://" + item)
+            if req.status_code != 200:
+                print("Error:", req.status_code)
+            else: 
+                #text += req.text
+                answers += runoptions(options, we, valid_choices, req.text)
     if options.fromFile is not None:
-        with open(options.fromFile, "r") as file:
-            text += file.read()
-    if options.selection == "all":
-        for option in valid_choices:
-            if option == "all":
-                continue
-            answers += we.extractTags(text, option)
-    else:
-            answers += we.extractTags(text, options.selection)
+        try:
+            for item in options.fromFile:
+                we.printMessage("Processing " + item)
+                with open(options.fromFile, "r") as file:
+                    #text += file.read()
+                    answers += runoptions(options, we, valid_choices, file.read())
+        except:
+            print("Error: Unable to read provided file, skipping...")
+
     if options.domains:
         # extract from the list to make it print per line for future grepping
         [print(item) for item in we.findDomains(answers)]
