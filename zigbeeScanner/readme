@@ -1,0 +1,31 @@
+# ZigBeeScanner Readme
+
+## Contributor
+* Author: Kurt Jarvis
+* Date: May 31, 2023
+* Script Name: zigbeeScanner.py
+
+## Description
+The zigbee scanner is a tool to see what devices are currently broadcasting within the range of the zigbee reader. With all the different devices that are being put into smart homes and networks, this is another vector that is up and coming for exploitation. With little network defense in this space, it is prime for exploitation. Knowing what is currently within the area on which bands is a large key factor.
+
+If you have a pcap of a network scan from another area, you can pass that to this scanner and see what it found.
+
+## Installation
+### Hardware
+It does require a zigbee device able to scan packets. Similiar to an alfa card for WiFi packets, you'll need some card such as a CC2531 or an Apimote device. This was tested with both of these devices.
+### Software
+Basic install requires the following:
+ python3 -m pip install -r requirements.txt
+All set!
+### Manufacturer Codes
+There are many ways to pull this in. To be simple, we are leveraging the wireshark database found at:
+https://gitlab.com/wireshark/wireshark/-/raw/master/manuf. You can use what you want but you may have to parse it differently, change it at your own risk!
+
+## Additional Resources
+For those unaware of zigbee, these references are good starting points:
+https://hackaday.io/project/163487/instructions
+https://blog.attify.com/hack-iot-devices-zigbee-sniffing-exploitation/
+https://www.hal9k.dk/sniffing-philips-hue-zigbee-traffic-with-wireshark/
+
+
+
