@@ -1,0 +1,6 @@
+scapy
+pandas
+tqdm
+tabulate
+matplotlib
+python-version<3.10

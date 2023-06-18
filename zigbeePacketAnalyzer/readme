@@ -1,0 +1,24 @@
+# ZigBee Packet Analyzer Readme
+
+## Contributor
+* Author: Kurt Jarvis
+* Date: 14 June, 2023
+* Script Name: zibgeePacketAnalzyer.py
+* Base: https://github.com/tadiaz/DSU created a tool called "tool-two.py" that I wanted to see if it could do the same tricks for zigbee data
+
+## Description
+This tool is a way to pull out metrics on zigbee traffic from a captured pcap and see what kind of activity is happening based on the traffic. This tool was started by "tadiaz" during cycle 4 and I tried converting it to support ZigBee and not just tcp/ip data. This creates an image that shows the distribution of communication types within the ZigBee protocol. This can be helpful to determine which devices are acting as a coordinator, a router, or an end-device. It also shows who is pulling the load wihtin the network.
+
+## Installation
+Basic install requires the following:
+ python3 -m pip install -r requirements.txt
+All set!
+
+## Additional Resources
+https://github.com/tadiaz/DSU/tree/main
+https://github.com/secdev/scapy/blob/master/scapy/layers/zigbee.py
+https://scapy.readthedocs.io/en/latest/api/scapy.layers.zigbee.html
+https://www.askpython.com/python-modules/tabulate-tables-in-python
+
+
+
