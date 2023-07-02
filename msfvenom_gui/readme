@@ -1,0 +1,20 @@
+# MSFVenom-gui Readme
+
+## Contributor
+* Author: Kurt Jarvis
+* Date: June 02, 2023
+* Script Name: msfvenom-gui.py
+
+## Description
+The webpage extractor is a tool that provides a gui front-end to the msfvenom payload generator. Props to bluesentinelsec for creating the tool in ptinker using poetry. I took that idea and refactored it into a PyQt5 gui.
+
+## Installation
+Basic install requires the following:
+ python3 -m pip install -r requirements.txt
+All set!
+
+## Additional Resources
+I used PyQt5 for the development, so digging through the documentation is where I sat.
+PyQt5 references: https://doc.qt.io/qtforpython-5/
+Metasploit: https://docs.metasploit.com/docs/using-metasploit/basics/how-to-use-msfvenom.html
+Threads: https://www.pythonguis.com/tutorials/multithreading-pyqt-applications-qthreadpool/
